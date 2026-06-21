@@ -86,7 +86,7 @@ const config = {
         title: 'VIPERSEC',
         logo: {
           alt: 'VIPERSEC Logo',
-          src: 'img/logo.svg',
+          src: 'logo/vipersec-logo.png' ,
         },
 items: [
   {
