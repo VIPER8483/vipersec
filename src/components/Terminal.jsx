@@ -1,6 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Terminal() {
+  const [history, setHistory] = useState([
+    { command: 'help', output: 'Type help to see available commands.' },
+  ]);
+
+  const [input, setInput] = useState('');
+
+  const commands = {
+    help: `Available Commands
+
+whoami
+skills
+certifications
+projects
+github
+clear`,
+
+    whoami: `Shantanu Kakade
+Junior Penetration Tester
+eJPT Certified`,
+
+    skills: `Linux
+Networking
+Nmap
+Burp Suite
+Metasploit
+Python
+Bash
+Active Directory`,
+
+    certifications: `eJPT
+IBM Cybersecurity Fundamentals
+LearnVern Ethical Hacking`,
+
+    projects: `VIPERSEC Website
+Python Port Scanner
+Bash Automation`,
+
+    github: `https://github.com/VIPER8483`,
+  };
+
+  function runCommand(e) {
+    e.preventDefault();
+
+    const cmd = input.trim().toLowerCase();
+
+    if (!cmd) return;
+
+    if (cmd === 'clear') {
+      setHistory([]);
+      setInput('');
+      return;
+    }
+
+    const output = commands[cmd] || 'Command not found. Type "help".';
+
+    setHistory([
+      ...history,
+      {
+        command: cmd,
+        output,
+      },
+    ]);
+
+    setInput('');
+  }
+
   return (
     <section
       style={{
@@ -19,7 +85,8 @@ export default function Terminal() {
           boxShadow: '0 0 25px rgba(0,255,136,.15)',
         }}
       >
-        {/* Terminal Header */}
+        {/* Header */}
+
         <div
           style={{
             background: '#1f2937',
@@ -29,52 +96,65 @@ export default function Terminal() {
             gap: '10px',
           }}
         >
-          <span style={{width:'12px',height:'12px',background:'#ff5f56',borderRadius:'50%'}}></span>
-          <span style={{width:'12px',height:'12px',background:'#ffbd2e',borderRadius:'50%'}}></span>
-          <span style={{width:'12px',height:'12px',background:'#27c93f',borderRadius:'50%'}}></span>
+          <span style={{ width: 12, height: 12, background: '#ff5f56', borderRadius: '50%' }} />
+          <span style={{ width: 12, height: 12, background: '#ffbd2e', borderRadius: '50%' }} />
+          <span style={{ width: 12, height: 12, background: '#27c93f', borderRadius: '50%' }} />
 
           <span
             style={{
+              marginLeft: 20,
               color: '#9ca3af',
-              marginLeft: '20px',
               fontFamily: 'monospace',
             }}
           >
-            terminal
+            VIPERSEC Terminal
           </span>
         </div>
 
-        {/* Terminal Body */}
+        {/* Body */}
+
         <div
           style={{
-            padding: '30px',
-            color: '#00FF88',
+            padding: '25px',
             fontFamily: 'monospace',
-            lineHeight: '2',
-            fontSize: '17px',
+            color: '#00ff88',
+            minHeight: '350px',
           }}
         >
-          <p>$ whoami</p>
-          <p style={{color:'white'}}>Shantanu Kakade</p>
+          {history.map((item, index) => (
+            <div key={index} style={{ marginBottom: '20px' }}>
+              <div>$ {item.command}</div>
 
-          <p>$ certifications</p>
-          <p style={{color:'white'}}>eJPT</p>
+              <pre
+                style={{
+                  color: 'white',
+                  whiteSpace: 'pre-wrap',
+                  marginTop: '8px',
+                }}
+              >
+                {item.output}
+              </pre>
+            </div>
+          ))}
 
-          <p>$ current_focus</p>
-          <p style={{color:'white'}}>
-            Web Security<br/>
-            Active Directory<br/>
-            CCNA
-          </p>
+          <form onSubmit={runCommand}>
+            <span>$ </span>
 
-          <p>$ labs</p>
-          <p style={{color:'white'}}>
-            Hack The Box<br/>
-            TryHackMe<br/>
-            PortSwigger
-          </p>
-
-          <p>$ <span style={{animation:'blink 1s infinite'}}>█</span></p>
+            <input
+              autoFocus
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                color: '#00ff88',
+                width: '90%',
+                fontFamily: 'monospace',
+                fontSize: '17px',
+              }}
+            />
+          </form>
         </div>
       </div>
     </section>

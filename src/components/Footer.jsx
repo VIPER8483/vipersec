@@ -68,7 +68,7 @@ export default function Footer() {
           fontSize: '14px',
         }}
       >
-        © 2026 VIPERSEC | Built by Shantanu Kakade
+      
       </p>
     </footer>
   );

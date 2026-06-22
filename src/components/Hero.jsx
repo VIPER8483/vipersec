@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaShieldAlt,
+} from 'react-icons/fa';
 
 export default function Hero() {
   return (
@@ -15,7 +21,6 @@ export default function Hero() {
       }}
     >
       <div>
-
         <img
           src="/logo/vipersec-logo.png"
           alt="VIPERSEC"
@@ -30,12 +35,15 @@ export default function Hero() {
             fontSize: '72px',
             color: '#00FF88',
             marginBottom: '10px',
+            fontWeight: 'bold',
           }}
         >
           VIPERSEC
         </h1>
 
-        <h2>Cybersecurity Portfolio</h2>
+        <h2 style={{ fontSize: '36px' }}>
+          Cybersecurity Portfolio
+        </h2>
 
         <p
           style={{
@@ -50,60 +58,116 @@ export default function Hero() {
           style={{
             color: '#00FF88',
             marginTop: '15px',
+            fontSize: '18px',
           }}
         >
           eJPT • Web Security • Active Directory • Linux
         </p>
 
-        <div
-          style={{
-            marginTop: '40px',
-          }}
-        >
-          <button
-            style={{
-              padding: '15px 30px',
-              margin: '10px',
-              borderRadius: '8px',
-              border: 'none',
-              background: '#00FF88',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-          >
-            📚 Resources
-          </button>
+        {/* Buttons */}
 
-          <button
-            style={{
-              padding: '15px 30px',
-              margin: '10px',
-              borderRadius: '8px',
-              border: 'none',
-              background: '#2563EB',
-              color: 'white',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-          >
-            🧪 Labs
-          </button>
+        <div style={{ marginTop: '40px' }}>
+          <a href="/docs/intro">
+            <button
+              style={{
+                padding: '15px 30px',
+                margin: '10px',
+                background: '#00FF88',
+                color: '#000',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+              }}
+            >
+              📚 Resources
+            </button>
+          </a>
 
-          <button
-            style={{
-              padding: '15px 30px',
-              margin: '10px',
-              borderRadius: '8px',
-              border: 'none',
-              background: '#F59E0B',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
+          <a href="/blog">
+            <button
+              style={{
+                padding: '15px 30px',
+                margin: '10px',
+                background: '#2563EB',
+                color: '#FFF',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+              }}
+            >
+              🧪 Labs
+            </button>
+          </a>
+
+          <a
+            href="https://github.com/VIPER8483"
+            target="_blank"
+            rel="noreferrer"
           >
-            📄 Resume
-          </button>
+            <button
+              style={{
+                padding: '15px 30px',
+                margin: '10px',
+                background: '#F59E0B',
+                color: '#000',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+              }}
+            >
+              💻 GitHub
+            </button>
+          </a>
         </div>
 
+        {/* Social Icons */}
+
+        <div
+          style={{
+            marginTop: '50px',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '30px',
+            fontSize: '34px',
+          }}
+        >
+          <a
+            href="https://github.com/VIPER8483"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: '#00FF88' }}
+          >
+            <FaGithub />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/shantanu-kakade-74b587316"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: '#00FF88' }}
+          >
+            <FaLinkedin />
+          </a>
+
+          <a
+            href="https://tryhackme.com/"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: '#00FF88' }}
+          >
+            <FaShieldAlt />
+          </a>
+
+          <a
+            href="mailto:iamshantanu121212@gmail.com"
+            style={{ color: '#00FF88' }}
+          >
+            <FaEnvelope />
+          </a>
+        </div>
       </div>
     </section>
   );
