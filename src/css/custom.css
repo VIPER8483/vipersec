@@ -1,30 +1,227 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * =====================================================
+ * VIPERSEC Custom Theme
+ * =====================================================
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #00ff88;
+  --ifm-color-primary-dark: #00e67a;
+  --ifm-color-primary-darker: #00cc6d;
+  --ifm-color-primary-darkest: #00b35f;
+  --ifm-color-primary-light: #1aff99;
+  --ifm-color-primary-lighter: #33ffa3;
+  --ifm-color-primary-lightest: #66ffbb;
+
+  --ifm-background-color: #0b1120;
+  --ifm-navbar-background-color: #111827;
+  --ifm-footer-background-color: #111827;
+
+  --ifm-font-family-base: Inter, Arial, sans-serif;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #00ff88;
+  --ifm-color-primary-dark: #00e67a;
+  --ifm-color-primary-darker: #00cc6d;
+  --ifm-color-primary-darkest: #00b35f;
+  --ifm-color-primary-light: #1aff99;
+  --ifm-color-primary-lighter: #33ffa3;
+  --ifm-color-primary-lightest: #66ffbb;
+
+  --ifm-background-color: #0b1120;
+  --ifm-navbar-background-color: #111827;
+  --ifm-footer-background-color: #111827;
+}
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0b1120;
+  color: #ffffff;
+
+  /* Hacker cursor */
+  cursor: crosshair;
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+a {
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+a:hover {
+  color: #00ff88;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.35);
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  background: #111827 !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+}
+
+.navbar__link:hover {
+  color: #00ff88 !important;
+}
+
+.navbar__brand:hover {
+  color: #00ff88;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  background: #111827;
+}
+
+.footer a:hover {
+  color: #00ff88;
+}
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+}
+
+.green {
+  color: #00ff88;
+}
+
+/* =====================================================
+   TERMINAL
+===================================================== */
+
+.terminal {
+  cursor: text;
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc6d;
+}
+
+/* =====================================================
+   TEXT SELECTION
+===================================================== */
+
+::selection {
+  background: #00ff88;
+  color: #000;
+}
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+img {
+  user-select: none;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 8px #00ff88;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #00ff88;
+  }
+}
+
+.glow {
+  animation: glow 2s infinite;
+}
+
+/* =====================================================
+   SECTION SPACING
+===================================================== */
+
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* =====================================================
+   HOVER EFFECTS
+===================================================== */
+
+.skill-card,
+.project-card,
+.cert-card {
+  transition: .3s;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(0, 255, 136, .25);
 }

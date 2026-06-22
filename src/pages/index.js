@@ -1,6 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Terminal from '../components/Terminal';
+import Skills from '../components/Skills';
+import Projects from '../components/Projects';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -210,6 +213,9 @@ export default function Home() {
         </div>
       </section>
         <Terminal />
+        <Skills />
+        <Projects />
+        <Footer />
     </Layout>
   );
 }
